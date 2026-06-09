@@ -1,0 +1,15 @@
+{
+  "name": "jenkins-learning-project",
+  "version": "1.0.0",
+  "description": "A simple project to learn Jenkins CI/CD",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "eslint": "^8.56.0"
+  }
+}
