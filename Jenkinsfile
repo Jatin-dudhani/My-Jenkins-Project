@@ -9,6 +9,7 @@ pipeline {
     parameters {
         string(name: 'GREETING_NAME', defaultValue: 'Jenkins', description: 'Name to greet in the build')
         booleanParam(name: 'RUN_TESTS', defaultValue: true, description: 'Run unit tests')
+        booleanParam(name: 'BUILD_DOCKER', defaultValue: true, description: 'Build Docker image')
         choice(name: 'DEPLOY_ENV', choices: ['dev', 'staging', 'prod'], description: 'Deployment environment')
     }
 
@@ -58,6 +59,9 @@ pipeline {
         }
 
         stage('Docker Build') {
+            when {
+                expression { params.BUILD_DOCKER == true }
+            }
             steps {
                 script {
                     dockerImage = docker.build(DOCKER_IMAGE)
@@ -108,9 +112,6 @@ pipeline {
         }
         failure {
             echo "Build ${BUILD_NUMBER} failed!"
-            mail to: 'team@example.com',
-                 subject: "Failed: ${APP_NAME} #${BUILD_NUMBER}",
-                 body: "Build failed. Check Jenkins for details."
         }
         unstable {
             echo "Build ${BUILD_NUMBER} is unstable (tests failed)."
