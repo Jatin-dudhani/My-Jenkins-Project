@@ -1,4 +1,4 @@
-const { greet, add } = require('./index');
+import { greet, add } from './index.js';
 
 test('greets with name', () => {
   expect(greet('Jenkins')).toBe('Hello, Jenkins! Welcome to Jenkins Learning!');

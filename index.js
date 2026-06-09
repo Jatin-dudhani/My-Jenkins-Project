@@ -1,13 +1,11 @@
-function greet(name) {
+export function greet(name) {
   return `Hello, ${name}! Welcome to Jenkins Learning!`;
 }
 
-function add(a, b) {
+export function add(a, b) {
   return a + b;
 }
 
-module.exports = { greet, add };
-
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   console.log(greet(process.env.NAME || 'World'));
 }

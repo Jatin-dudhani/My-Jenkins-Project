@@ -14,10 +14,16 @@ export default [
         describe: 'readonly',
         it: 'readonly',
         beforeEach: 'readonly',
-        afterEach: 'readonly'
+        afterEach: 'readonly',
+        global: 'readonly',
+        setTimeout: 'readonly',
+        clearTimeout: 'readonly',
+        setInterval: 'readonly',
+        clearInterval: 'readonly',
+        Promise: 'readonly',
+        Buffer: 'readonly'
       }
     },
-    env: { node: true, es2022: true },
     rules: {
       'no-unused-vars': 'warn',
       'no-console': 'off',
