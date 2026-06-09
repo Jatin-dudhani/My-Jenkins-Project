@@ -6,17 +6,12 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "test": "jest --coverage --reporters=default --reporters=jest-junit",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage --reporters=default --reporters=jest-junit",
     "lint": "eslint ."
   },
   "devDependencies": {
     "jest": "^29.7.0",
     "eslint": "^8.56.0",
     "jest-junit": "^16.0.0"
-  },
-  "jest": {
-    "transform": {},
-    "moduleFileExtensions": ["js", "mjs", "cjs"],
-    "testEnvironment": "node"
   }
 }
