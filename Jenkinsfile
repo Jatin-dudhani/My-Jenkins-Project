@@ -42,7 +42,7 @@ pipeline {
                 expression { params.RUN_TESTS == true }
             }
             steps {
-                sh 'npm test -- --coverage'
+                sh 'npm test'
             }
             post {
                 always {
