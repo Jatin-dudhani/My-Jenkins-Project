@@ -60,7 +60,10 @@ pipeline {
 
         stage('Docker Build') {
             when {
-                expression { params.BUILD_DOCKER == true }
+                allOf {
+                    expression { params.BUILD_DOCKER == true }
+                    expression { sh(script: 'command -v docker', returnStatus: true) == 0 }
+                }
             }
             steps {
                 script {
