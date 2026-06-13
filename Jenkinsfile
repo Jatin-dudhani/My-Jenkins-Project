@@ -67,7 +67,7 @@ pipeline {
             }
             steps {
                 script {
-                    dockerImage = docker.build(DOCKER_IMAGE)
+                    def dockerImage = docker.build(DOCKER_IMAGE)
                 }
             }
         }
