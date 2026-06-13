@@ -107,8 +107,8 @@ pipeline {
 
     post {
         always {
-            cleanWs()
             archiveArtifacts artifacts: 'build-info.txt, deploy-*.log', allowEmptyArchive: true
+            cleanWs()
         }
         success {
             echo "Build ${BUILD_NUMBER} completed successfully!"
